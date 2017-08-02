@@ -6,7 +6,7 @@ Simple collectables and collectors for 2d unity games
 
 ## How
 
-+ Add [2DCollectables](,/Assets/2DCollectables) to your unity project
++ Add [2DCollectables](./Assets/2DCollectables) to your unity project
 + Add `Collider2D` components (of any shape) to your collectable objects
 + Add `Collectable` scripts to your collectable objects
 + Add a [Collector](./Assets/2DCollectables/Scripts/Collectors) to your character (collector) or implement your own by deriving from `ICollector`
@@ -14,7 +14,7 @@ Simple collectables and collectors for 2d unity games
 
 ## Examples
 
-These live under [Examples](,/Assets/2DCollectables/Examples)
+These live under [Examples](./Assets/2DCollectables/Examples)
 
 ### Basic
 
