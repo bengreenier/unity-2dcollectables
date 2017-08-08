@@ -54,15 +54,15 @@ namespace TwoDCollectables.Collectors
             this.collectedItems.SetActive(false);
         }
 
-        public override void OnCollected(Collectable item)
+        public override void OnCollected(Collectable.CollectionEventData eventData)
         {
             if (this.items.Count < this.MaxItems)
             {
-                this.items.Enqueue(item);
+                this.items.Enqueue(eventData.collectable);
 
                 // note: we don't delete the object, we just move it to the list
                 // and since that stack is not active it stops being active as well
-                item.gameObject.transform.SetParent(collectedItems.transform);
+                eventData.collectable.gameObject.transform.SetParent(collectedItems.transform);
             }
         }
     }

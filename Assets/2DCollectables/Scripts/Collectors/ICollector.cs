@@ -25,7 +25,7 @@ namespace TwoDCollectables.Collectors
         /// <summary>
         /// Called when a <see cref="Collectable"/> is collected
         /// </summary>
-        /// <param name="item">the item that was collected</param>
-        void OnCollected(Collectable item);
+        /// <param name="eventData">the eventData that represents the collection</param>
+        void OnCollected(Collectable.CollectionEventData eventData);
     }
 }

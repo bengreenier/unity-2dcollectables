@@ -14,7 +14,7 @@ namespace TwoDCollectables.Collectors
     {
         public abstract IEnumerable<Collectable> Items { get; }
 
-        public abstract void OnCollected(Collectable item);
+        public abstract void OnCollected(Collectable.CollectionEventData eventData);
 
         public abstract Collectable Peek();
 

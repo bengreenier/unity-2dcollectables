@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TwoDCollectables.Collectors
 {
@@ -11,11 +10,11 @@ namespace TwoDCollectables.Collectors
         /// <summary>
         /// Handles collection by calling <see cref="Debug.Log(object)"/> with the collected items name, and then destroys the item
         /// </summary>
-        /// <param name="item">the item that was collected</param>
-        public void OnCollected(Collectable item)
+        /// <param name="item">the eventData that represents the collection</param>
+        public void OnCollected(Collectable.CollectionEventData eventData)
         {
-            Debug.Log("Collected " + item.name);
-            Destroy(item.gameObject);
+            Debug.Log("Collected " + eventData.collectable.name);
+            Destroy(eventData.collectable.gameObject);
         }
     }
 }

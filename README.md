@@ -34,6 +34,12 @@ A scene capable of spawning collectables at a random interval, and which does no
 
 It leverages [RangeRandomizer](./Assets/2DCollectables/Scripts/Utilities/RangeRandomizer.cs) to change the spawn intervals within a given range independently of one-another.
 
+### 3D
+
+> Note: this is a `beta` feature that I am considering changing the API of. Plan accordingly.
+
+A scene that is exactly like the `Spawner` scene, but uses 3d game components. This makes the title of this library irrelevant, but it also lets you leverage the collectable system if you're using 3d colliders.
+
 ## License
 
 MIT

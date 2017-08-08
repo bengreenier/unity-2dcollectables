@@ -9,6 +9,11 @@ namespace TwoDCollectables
     public class CollectableSpawn : MonoBehaviour
     {
         /// <summary>
+        /// The dimensions this spawn works in
+        /// </summary>
+        public Collectable.Dimensions Dimensions = Collectable.Dimensions.Two;
+
+        /// <summary>
         /// Should we spawn an item right away?
         /// </summary>
         public bool SpawnOnStart = false;
@@ -85,12 +90,27 @@ namespace TwoDCollectables
                     bool allowSpawn = true;
                     if (this.PreventSpawnCollectorRange > 0f)
                     {
-                        foreach (var overlap in Physics2D.OverlapCircleAll(transform.position, this.PreventSpawnCollectorRange))
+                        if ((this.Dimensions & Collectable.Dimensions.Two) != 0)
                         {
-                            if (overlap.GetComponent<ICollector>() != null)
+                            foreach (var overlap in Physics2D.OverlapCircleAll(transform.position, this.PreventSpawnCollectorRange))
                             {
-                                allowSpawn = false;
-                                break;
+                                if (overlap.GetComponent<ICollector>() != null)
+                                {
+                                    allowSpawn = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if ((this.Dimensions & Collectable.Dimensions.Three) != 0)
+                        {
+                            foreach (var overlap in Physics.SphereCastAll(transform.position, this.PreventSpawnCollectorRange, Vector3.up))
+                            {
+                                if (overlap.collider.GetComponent<ICollector>() != null)
+                                {
+                                    allowSpawn = false;
+                                    break;
+                                }
                             }
                         }
                     }
