@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TwoDCollectables
+namespace TwoDCollectables.Collectors
 {
     /// <summary>
     /// Storage class for constants related to <see cref="ICollector"/>

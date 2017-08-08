@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TwoDCollectables.Collectors;
+using UnityEngine;
 
 namespace TwoDCollectables
 {

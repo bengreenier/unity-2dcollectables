@@ -7,18 +7,18 @@ namespace TwoDCollectables.Collectors
     /// <summary>
     /// A collector that stores (and exposes) a stack of collected items
     /// </summary>
-    class StackCollector : MonoBehaviour, ICollector
+    class StackCollector : BaseCollectionCollector
     {
         /// <summary>
         /// The max number of items allowed in the stack at a given time
         /// </summary>
         public int MaxItems = 5;
-        
+
         /// <summary>
         /// Peeks the item at the top of the stack
         /// </summary>
         /// <returns>the top <see cref="Collectable"/> on the stack</returns>
-        public Collectable Peek()
+        public override Collectable Peek()
         {
             return items.Count > 0 ? items.Peek() : null;
         }
@@ -27,9 +27,20 @@ namespace TwoDCollectables.Collectors
         /// Pops the item at the top of the stack
         /// </summary>
         /// <returns>the top <see cref="Collectable"/> on the stack</returns>
-        public Collectable Pop()
+        public override Collectable Pop()
         {
             return items.Count > 0 ? items.Pop() : null;
+        }
+
+        /// <summary>
+        /// Enumerable collection of items in the stack
+        /// </summary>
+        public override IEnumerable<Collectable> Items
+        {
+            get
+            {
+                return items;
+            }
         }
 
         private Stack<Collectable> items = new Stack<Collectable>();
@@ -43,7 +54,7 @@ namespace TwoDCollectables.Collectors
             this.itemStack.SetActive(false);
         }
 
-        public void OnCollected(Collectable item)
+        public override void OnCollected(Collectable item)
         {
             if (this.items.Count < this.MaxItems)
             {
